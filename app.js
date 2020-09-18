@@ -1,11 +1,13 @@
 const express = require('express');
-const bcryptjs = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const mongoose = require('mongoose');
-const config = require('config');
-const expressValidator = require('express-validator');
+const connectDB = require('./config/db');
+
+// Connect to database
+connectDB();
 
 const app = express();
+
+// init middleware / accept data
+app.use(express.json({ extended: false }));
 
 app.use('/api/users', require('./routes/users'));
 app.use('/api/auth', require('./routes/auth'));
