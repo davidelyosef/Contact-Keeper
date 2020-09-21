@@ -91,7 +91,7 @@ const ContactState = props => {
     };
 
     try {
-      const res = await axios.put(
+      const res = await axios.patch(
         `/api/contacts/${contact._id}`,
         contact,
         config
